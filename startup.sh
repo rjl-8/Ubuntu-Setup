@@ -9,6 +9,10 @@ sudo apt-get install apache2
 sudo apt-get install libapache2-mod-wsgi
 sudo apt install mysql-client-core-5.7
 
+git clone https://github.com/rjl-8/Ubuntu-Setup.git
+sudo cp /etc/ssh/sshd_config Ubuntu-Setup/sshd_config.bak
+sudo cp Ubuntu-Setup/sshd_config /etc/ssh/sshd_config
+
 #sudo apt install python-pip
 #sudo pip install sqlalchemy
 #sudo pip install psycopg2-binary
