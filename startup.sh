@@ -17,3 +17,5 @@ sudo apt install mysql-client-core-5.7
 #sudo pip install requests
 
 sudo apache2ctl restart
+
+sudo service ssh restart
