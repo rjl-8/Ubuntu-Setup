@@ -6,7 +6,7 @@ sudo apt-get upgrade
 
 sudo apt-get install git
 sudo apt-get install apache2
-sudo apt-get install mysql-client-core-5.7
+sudo apt install mysql-client-core-5.7
 
 #sudo apt install python-pip
 #sudo pip install sqlalchemy
