@@ -14,6 +14,7 @@ mysql_secure_installation
 git clone https://github.com/rjl-8/Ubuntu-Setup.git
 
 # setup ssh (don't forget to do the firewall via the lightsail manage function)
+chmod a+x ~/Ubuntu-Setup/secure_ssh.sh
 ~/Ubuntu-Setup/secure_ssh.sh > ~/Ubuntu-Setup/ssh_config.new
 sudo cp /etc/ssh/sshd_config ~/Ubuntu-Setup/sshd_config.bak
 sudo cp ~/Ubuntu-Setup/sshd_config.new /etc/ssh/sshd_config
