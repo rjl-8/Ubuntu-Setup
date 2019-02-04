@@ -16,7 +16,8 @@ git clone https://github.com/rjl-8/Ubuntu-Setup.git
 sudo cp /etc/ssh/sshd_config ~/Ubuntu-Setup/sshd_config.bak
 sudo cp ~/Ubuntu-Setup/sshd_config.new /etc/ssh/sshd_config
 sudo chown root:root /etc/ssh/sshd_config
-#sudo chmod something /etc/ssh/sshd_config
+sudo chmod a+r /etc/ssh/sshd_config
+sudo chmod u+w /etc/ssh/sshd_config
 
 echo 'Configure lightsail firewall to allow it'
 echo 'in aws console, select lightsail'
