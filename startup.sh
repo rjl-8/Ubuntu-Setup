@@ -1,6 +1,6 @@
 # do general app upgrades
 sudo apt-get update
-sudo apt-get upgrade
+sudo apt-get -y upgrade
 
 # install stuff I need
 sudo apt-get -y install git
