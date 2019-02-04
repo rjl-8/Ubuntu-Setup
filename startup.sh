@@ -3,10 +3,10 @@ sudo apt-get update
 sudo apt-get upgrade
 
 # install stuff I need
-sudo apt-get install git
-sudo apt-get install apache2
-sudo apt-get install libapache2-mod-wsgi
-sudo apt-get install mysql-server
+sudo apt-get -y install git
+sudo apt-get -y install apache2
+sudo apt-get -y install libapache2-mod-wsgi
+sudo apt-get -y install mysql-server
 mysql_secure_installation
 #sudo apt install mysql-client-core-5.7
 
