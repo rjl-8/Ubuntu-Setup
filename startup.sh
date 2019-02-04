@@ -6,7 +6,9 @@ sudo apt-get upgrade
 sudo apt-get install git
 sudo apt-get install apache2
 sudo apt-get install libapache2-mod-wsgi
-sudo apt install mysql-client-core-5.7
+sudo apt-get install mysql-server
+mysql_secure_installation
+#sudo apt install mysql-client-core-5.7
 
 # download helpful files from git
 git clone https://github.com/rjl-8/Ubuntu-Setup.git
