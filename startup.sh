@@ -12,8 +12,12 @@ sudo apt install mysql-client-core-5.7
 git clone https://github.com/rjl-8/Ubuntu-Setup.git
 
 # setup ssh (don't forget to do the firewall via the lightsail manage function)
-sudo cp /etc/ssh/sshd_config Ubuntu-Setup/sshd_config.bak
-sudo cp Ubuntu-Setup/sshd_config /etc/ssh/sshd_config
+~/Ubuntu-Setup/secure_ssh.sh > ~/Ubuntu-Setup/ssh_config.new
+sudo cp /etc/ssh/sshd_config ~/Ubuntu-Setup/sshd_config.bak
+sudo cp ~/Ubuntu-Setup/sshd_config.new /etc/ssh/sshd_config
+sudo chown root:root /etc/ssh/sshd_config
+#sudo chmod something /etc/ssh/sshd_config
+
 echo 'Configure lightsail firewall to allow it'
 echo 'in aws console, select lightsail'
 echo 'then select the vertical elipsis for the instance in question'
