@@ -7,6 +7,8 @@ sudo apt-get -y install git
 sudo apt-get -y install apache2
 sudo apt-get -y install libapache2-mod-wsgi
 sudo apt-get -y install mysql-server
+echo "mysql-server mysql-server/root_password password strangehat" | sudo debconf-set-selections
+echo "mysql-server mysql-server/root_password_again password strangehat" | sudo debconf-set-selections
 mysql_secure_installation
 #sudo apt install mysql-client-core-5.7
 
