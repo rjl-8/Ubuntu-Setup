@@ -12,6 +12,8 @@ cat /etc/mysql/mysql.conf.d/mysqld.cnf | awk 'BEGIN{fnd=0}{
     }
     else if ($1 == "#skipstuffdone") {
         fnd = 1
+    else if ($1 == "bind-address") {
+        print "bind-address            = 0.0.0.0"
     }
     else {
         print $0
