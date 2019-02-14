@@ -23,7 +23,7 @@ sudo cp /tmp/mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
 
 sudo service mysql start
 
-mysql < ~/Ubuntu-Setup/reset_mysql_pw.sql
+mysql -e "set @pw='$1; source=~/Ubuntu-Setup/reset_mysql_pw.sql"
 
 sudo service mysql stop
 
