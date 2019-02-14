@@ -6,6 +6,8 @@ sudo apt-get -y upgrade
 sudo apt-get -y install git
 sudo apt-get -y install apache2
 sudo apt-get -y install libapache2-mod-wsgi
+
+# mysql stuff (mostly handled in other script)
 sudo apt-get -y install mysql-server
 # these don't work
 #echo "mysql-server mysql-server/root_password password strangehat" | sudo debconf-set-selections
@@ -43,8 +45,8 @@ sudo service mysql start
 git clone https://github.com/rjl-8/Ubuntu-Setup.git
 
 # setup ssh (don't forget to do the firewall via the lightsail manage function)
-chmod a+x ~/Ubuntu-Setup/secure_ssh.sh
-~/Ubuntu-Setup/secure_ssh.sh > ~/Ubuntu-Setup/ssh_config.new
+chmod a+x ~/Ubuntu-Setup/secure_sshd_config.sh
+~/Ubuntu-Setup/secure_sshd_config.sh > ~/Ubuntu-Setup/ssh_config.new
 sudo cp /etc/ssh/sshd_config ~/Ubuntu-Setup/sshd_config.bak
 sudo cp ~/Ubuntu-Setup/sshd_config.new /etc/ssh/sshd_config
 sudo chown root:root /etc/ssh/sshd_config
