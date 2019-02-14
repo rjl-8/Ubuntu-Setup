@@ -1,3 +1,5 @@
+sudo service mysql stop
+
 cat /etc/mysql/mysql.conf.d/mysql.cnf | awk 'BEGIN{fnd=0}{
     if ($1 == "[mysqld]" && fnd == 0) {
         print "#skipstuffdone"
@@ -14,3 +16,5 @@ cat /etc/mysql/mysql.conf.d/mysql.cnf | awk 'BEGIN{fnd=0}{
         print $0
     }
 }'
+
+sudo service mysql start
