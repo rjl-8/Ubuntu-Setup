@@ -17,24 +17,30 @@ cat /etc/mysql/mysql.conf.d/mysqld.cnf | awk 'BEGIN{fnd=0}{
     }
 }' > /tmp/mysqld.cnf
 sudo chmod a+r /tmp/mysqld.cnf
+sudo chmod u+w /tmp/mysqld.cnf
 sudo chown root:root /tmp/mysqld.cnf
 sudo cp /tmp/mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
 
 sudo service mysql start
 
-mysql
-mysql> use mysql;
-mysql> flush privileges;
-mysql> update user set authentication_string=PASSWORD("YOUR-NEW-ROOT-PASSWORD") where User='root';
-mysql> UPDATE user SET plugin="mysql_native_password" WHERE User='root';
-mysql> quit
+mysql mysql < ~/Ubuntu-Setup/reset_mysql_pw.sql
 
 sudo service mysql stop
-sudo vi /etc/mysql/mysql.conf.d/mysql.cnf
-# add following
-[mysqld]
-# For debugging and recovery only #
-#skip-grant-tables
-#skip-networking
-###################################
+
+cat /etc/mysql/mysql.conf.d/mysqld.cnf | awk '{
+    if ($1 == "skip-grant-tables") {
+        print "#skip-grant-tables"
+    }
+    else if ($1 == "skip-networking") {
+        print "#skip-networking"
+    }
+    else {
+        print $0
+    }
+}' > /tmp/mysqld.cnf
+sudo chmod a+r /tmp/mysqld.cnf
+sudo chmod u+w /tmp/mysqld.cnf
+sudo chown root:root /tmp/mysqld.cnf
+sudo cp /tmp/mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
+
 sudo service mysql start
