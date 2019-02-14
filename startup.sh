@@ -10,8 +10,34 @@ sudo apt-get -y install mysql-server
 # these don't work
 #echo "mysql-server mysql-server/root_password password strangehat" | sudo debconf-set-selections
 #echo "mysql-server mysql-server/root_password_again password strangehat" | sudo debconf-set-selections
-sudo mysql_secure_installation
+#sudo mysql_secure_installation
 #sudo apt install mysql-client-core-5.7
+sudo service mysql stop
+sudo vi /etc/mysql/mysql.conf.d/mysql.cnf
+# add following
+[mysqld]
+# For debugging and recovery only #
+skip-grant-tables
+skip-networking
+###################################
+sudo service mysql start
+
+mysql
+mysql> use mysql;
+mysql> flush privileges;
+mysql> update user set authentication_string=PASSWORD("YOUR-NEW-ROOT-PASSWORD") where User='root';
+mysql> UPDATE user SET plugin="mysql_native_password" WHERE User='root';
+mysql> quit
+
+sudo service mysql stop
+sudo vi /etc/mysql/mysql.conf.d/mysql.cnf
+# add following
+[mysqld]
+# For debugging and recovery only #
+#skip-grant-tables
+#skip-networking
+###################################
+sudo service mysql start
 
 # download helpful files from git
 git clone https://github.com/rjl-8/Ubuntu-Setup.git
