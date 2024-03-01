@@ -1,3 +1,14 @@
+# do general app updates
+sudo apt-get update
+sudo apt-get -y upgrade
+
+# Install mysql client
+sudo apt-get install mysql-client-core-8.0 -y
+
+
+exit
+########################################################
+
 # do general app upgrades
 sudo apt-get update
 sudo apt-get -y upgrade
