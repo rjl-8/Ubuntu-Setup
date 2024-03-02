@@ -1,3 +1,16 @@
+# 2024 version
+
+# db stuff
+# create mysql db
+# Specify username
+#    GDAdmin
+# Specify master db name
+#    GDMaster
+# Identify your database
+#    GenericData
+
+
+
 # do general app updates
 sudo apt-get update
 sudo apt-get -y upgrade
